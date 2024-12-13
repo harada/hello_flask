@@ -1,15 +1,16 @@
+import os
 from flask import Flask, render_template
 import pandas as pd
+from dotenv import load_dotenv
 
+
+load_dotenv()
 app = Flask(__name__)
 
 ##########################################################
 ########################### 01 ###########################
 ##########################################################
 @app.route('/')
-
-
-
 def index():
     return render_template('index.html')
 
@@ -30,4 +31,5 @@ def table():
     return render_template('table.html', data_frame=data_frame_html)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(port=port)
