@@ -30,4 +30,4 @@ def table():
     return render_template('table.html', data_frame=data_frame_html)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
